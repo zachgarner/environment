@@ -1,0 +1,6 @@
+[user]
+	name = Zach Garner
+	email = zachgarner@gmail.com
+
+[alias]
+	lg = log --color --graph --pretty=oneline --abbrev-commit

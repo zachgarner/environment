@@ -5,6 +5,7 @@ Release: %{time}
 License: BSD
 Group: Development/Tools
 Requires: zx-system-yum
+Requires: zx-system-env
 Requires: zx-system-build
 Requires: zx-system-server
 BuildRoot: /var/tmp/%{name}-rpmroot
@@ -22,6 +23,14 @@ mkdir -p $RPM_BUILD_ROOT/etc/lighttpd/conf.d
 %install
 rm -rf $RPM_BUILD_ROOT
 
+# Environment stuff
+mkdir -p $RPM_BUILD_ROOT/etc/profile.d
+cp %{src}/bash/profile.sh $RPM_BUILD_ROOT/etc/profile.d/zx.sh
+
+mkdir -p $RPM_BUILD_ROOT/home/zx
+cp %{src}/git/dot.gitconfig $RPM_BUILD_ROOT/home/zx/.gitconfig
+cp %{src}/vi/dot.vimrc $RPM_BUILD_ROOT/home/zx/.vimrc
+
 # Yum Client Configuration
 
 mkdir -p $RPM_BUILD_ROOT/srv/yum
@@ -36,6 +45,11 @@ Summary: Yum client environment configuration
 Group: Development/Tools
 Requires: createrepo
 %description yum
+
+%package env
+Summary: Various tool configurations
+Group: Development/Tools
+%description env
 
 %package build
 Summary: Build Tools and Environment
@@ -63,7 +77,7 @@ rm -f /etc/yum.repos.d/*
 ## Post
 
 %post yum
-createrepo /srv/yum
+# createrepo /srv/yum
 # Cannot do 'makecache' while yum installing
 # yum makecache || true # ignore errors
 
@@ -73,8 +87,6 @@ createrepo /srv/yum
 chkconfig lighttpd on
 /etc/init.d/lighttpd start
 /newservers/openPortInFirewall 80
-rm -f /etc/lighttpd/lighttpd.conf
-ln -s /etc/lighttpd/lighttpd-zx.conf /etc/lighttpd/lighttpd.conf
 
 # mysql
 chkconfig mysqld on
@@ -84,6 +96,11 @@ chkconfig mysqld on
 ## Files
 
 %files
+
+%files env
+/etc/profile.d/zx.sh
+/home/zx/.gitconfig
+/home/zx/.vimrc
 
 %files yum
 /etc/yum.repos.d/*
