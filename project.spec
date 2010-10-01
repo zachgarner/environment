@@ -67,6 +67,7 @@ Requires: mysql >= 5.0.77-4.el5_5.3
 Requires: mysql-server >= 5.0.77-4.el5_5.3
 Requires: lighttpd >= 1.4.26-2.el5
 Requires: lighttpd-fastcgi >= 1.4.26-2.el5
+Requires: python-flup
 %description server
 
 ## Pre
