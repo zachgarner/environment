@@ -29,6 +29,7 @@ cp %{src}/bash/profile.sh $RPM_BUILD_ROOT/etc/profile.d/zx.sh
 
 mkdir -p $RPM_BUILD_ROOT/home/zx
 cp %{src}/git/dot.gitconfig $RPM_BUILD_ROOT/home/zx/.gitconfig
+cp %{src}/git/dot.gitignore $RPM_BUILD_ROOT/home/zx/.gitignore
 cp %{src}/vi/dot.vimrc $RPM_BUILD_ROOT/home/zx/.vimrc
 
 # Yum Client Configuration
@@ -101,6 +102,7 @@ chkconfig mysqld on
 %files env
 /etc/profile.d/zx.sh
 /home/zx/.gitconfig
+/home/zx/.gitignore
 /home/zx/.vimrc
 
 %files yum

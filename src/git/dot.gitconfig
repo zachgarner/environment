@@ -4,3 +4,6 @@
 
 [alias]
 	lg = log --color --graph --pretty=oneline --abbrev-commit
+
+[core]
+	excludesfile = ~/.gitignore
