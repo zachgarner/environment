@@ -75,7 +75,7 @@ Requires: python-flup
 ## Pre
 
 %pre yum
-rm -f /etc/yum.repos.d/*
+# rm -f /etc/yum.repos.d/*
 
 ## Post
 
