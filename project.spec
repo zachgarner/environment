@@ -50,6 +50,7 @@ Requires: createrepo
 %package env
 Summary: Various tool configurations
 Group: Development/Tools
+Requires: tree
 %description env
 
 %package build
