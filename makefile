@@ -7,7 +7,7 @@ dist:
 	mkdir -p build/BUILD build/RPMS build/SRPMS
 	rpmbuild --define "date `date +'%Y%m%d'`" \
             --define "time `date +'%H%M'`" \
-            --define '_topdir build' -ba *.spec
+            --define "_topdir `pwd`/build" -ba *.spec
 
 	mkdir dist
 	ln `find build -name \*.rpm` dist/
