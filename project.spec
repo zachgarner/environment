@@ -68,8 +68,8 @@ Group: Development/Tools
 Requires: mysql
 Requires: mysql-server
 Requires: lighttpd
-Requires: lighttpd-fastcgi
-Requires: python-flup
+# Requires: lighttpd-fastcgi
+# Requires: python-flup
 %description server
 
 ## Pre
