@@ -1,0 +1,8 @@
+PWD_LINKS=`pwd -L`
+PWD_PHYSICAL=`pwd -P`
+
+if [ $PWD_LINKS = $PWD_PHYSICAL ]; then
+  echo $PWD_LINKS
+else
+  echo $PWD_LINKS \($PWD_PHYSICAL\)
+fi
