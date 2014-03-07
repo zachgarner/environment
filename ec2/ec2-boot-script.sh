@@ -2,6 +2,8 @@ sudo apt-get update
 sudo apt-get install git
 
 # Set up Environment
+git config --global user.name "Zach Garner"
+git config --global user.email zachgarner@gmail.com
 git clone https://github.com/ZachGarner/environment.git
 
 
@@ -15,3 +17,4 @@ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.7.0
 sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.7.0/bin/javac" 1
 sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.7.0/bin/javaws" 1
     # Note: assumes PATH & JAVA_HOMEalready set up in .profile
+
